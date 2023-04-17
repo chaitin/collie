@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '{{ports.redis.ip}}:{{ports.redis.port}}:6379'
+      - '{{ports.sentinel.ip}}:{{ports.sentinel.port}}:26379'
+    command: redis-server /etc/redis/redis.conf --save 20 1 --loglevel warning --requirepass {{variables.password.value}}
+    volumes: 
+      - ./data:/data
+      - ./config/redis.conf:/etc/redis/redis.conf
