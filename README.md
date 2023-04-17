@@ -117,14 +117,5 @@ variables:
 
 ## 应用生命周期说明
 
-### 启动插件
+![生命周期](assets/lifecycle.png)
 
-![启动插件](assets/%E5%90%AF%E5%8A%A8%E6%8F%92%E4%BB%B6.png)
-
-### 更新插件
-
-![更新插件](assets/%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6.png)
-
-### 卸载插件
-
-![卸载插件](assets/%E5%8D%B8%E8%BD%BD%E6%8F%92%E4%BB%B6.png)
