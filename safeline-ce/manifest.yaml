@@ -1,0 +1,30 @@
+metadata:
+  name: safeline-ce
+  desc: keep hackers at bay.
+  tags:
+    - waf
+  version: 1.2.0
+  homepage: https://github.com/chatin/safeline
+  author:
+    name: yawei.li
+    mail: yawei.li@chaitin.com
+  resource:
+    limit:
+      cpu: 2
+      memory: 4096M
+      disk: 10G
+    recommand:
+      cpu: 4
+      memory: 8192M
+      disk: 20G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  management:
+    ip: 0.0.0.0
+    port: 9443
+    desc: 管理后台
+
+variables:
