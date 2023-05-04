@@ -8,14 +8,67 @@
 
 ### 🌐 通过牧云主机管理助手使用
 
-你可以在 [官网](https://rivers.chaitin.cn/) 安装牧云主机管理助手，安装后即可使用其中的牧云插件。使用过程中遇到的问题欢迎来这里发 Issue.
+你可以在 [官网](https://rivers.chaitin.cn/?share=34da0f89e4ff11ed94c80242c0a81705) 安装牧云主机管理助手，安装后即可使用其中的牧云插件。使用过程中遇到的问题欢迎来这里发 Issue.
 
 ### 💻 通过独立 CLI 工具使用
 
-#### 通过 cargo 安装
+#### 通过 cargo 安装 (🔥推荐)
+
+Arch Linux:
 
 ```shell
-cargo install collie-agent-cli
+# Install openssl-dev first
+sudo pacman -S pkg-config openssl
+cargo +nightly install collie-app-cli
+```
+
+Debian and Ubuntu:
+
+```shell
+sudo apt install pkg-config libssl-dev
+cargo +nightly install collie-app-cli
+```
+
+CentOS:
+
+```shell
+yum install pkg-config openssl-devel
+cargo +nightly install collie-app-cli
+```
+
+Fedora:
+
+```shell
+sudo dnf install pkg-config openssl-devel
+cargo +nightly install collie-app-cli
+```
+
+Alpine Linux:
+
+```shell
+apk add pkgconfig openssl-dev
+cargo +nightly install collie-app-cli
+```
+
+macOS (Homebrew):
+
+```shell
+brew install openssl@3
+cargo +nightly install collie-app-cli
+```
+
+macOS (MacPorts):
+
+```shell
+sudo port install openssl
+cargo +nightly install collie-app-cli
+```
+
+macOS (pkgsrc):
+
+```shell
+sudo pkgin install openssl
+cargo +nightly install collie-app-cli
 ```
 
 #### 手工安装
@@ -30,7 +83,7 @@ cargo install collie-agent-cli
 ### 创建模版应用
 
 ```shell
-collie-agent-cli new <your_new_app>
+collie-app-cli new <your_new_app>
 ```
 
 ### 修改你的应用
@@ -49,7 +102,7 @@ cd <your_new_app>
 ### 查看渲染结果
 
 ```shell
-collie-agent-cli up --dry
+collie-app-cli up --dry
 ```
 
 渲染结果在 **.render**
@@ -59,13 +112,13 @@ collie-agent-cli up --dry
 启动应用:
 
 ```shell
-collie-agent-cli up
+collie-app-cli up
 ```
 
 停止应用:
 
 ```shell
-collie-agent-cli down
+collie-app-cli down
 ```
 
 ## 应用结构说明
