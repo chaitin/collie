@@ -33,7 +33,7 @@ const FEATURE_LIST = [
     content: (
       <>
         <Typography variant="body1" sx={{ mb: "10px" }}>
-          实时控 CPU、内存、磁盘、网络等资源，提供秒级告警
+          实时监控 CPU、内存、磁盘、网络等资源，提供秒级告警
         </Typography>
         <Typography variant="body1">
           支持查看历史资源占用情况
@@ -46,10 +46,10 @@ const FEATURE_LIST = [
     content: (
       <>
         <Typography variant="body1" sx={{ mb: "10px" }}>
-          提供完善的安全扫描体系，使系统免于收到黑客攻击
+          提供完善的安全扫描体系，使系统免于受到黑客攻击
         </Typography>
         <Typography variant="body1">
-          安全能力有长亭牧云主机安全引擎驱动，业界领先
+          安全能力由长亭牧云主机安全引擎驱动，业界领先
         </Typography>
       </>
     ),
