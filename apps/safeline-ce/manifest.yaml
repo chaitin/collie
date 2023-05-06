@@ -4,7 +4,7 @@ metadata:
   tags:
     - waf
   version: 1.2.0
-  homepage: https://github.com/chatin/safeline
+  homepage: https://github.com/chaitin/safeline
   author:
     name: yawei.li
     mail: yawei.li@chaitin.com
