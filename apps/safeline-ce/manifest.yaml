@@ -1,9 +1,11 @@
 metadata:
-  name: safeline-ce
-  desc: keep hackers at bay.
+  name: 长亭雷池 WAF 社区版
+  desc: 核心检测能力由智能语义分析算法驱动，不让黑客越雷池半步。
   tags:
-    - waf
-  version: 1.2.0
+    - 安全
+    - WAF
+    - Web
+  version: 1.3.0
   homepage: https://github.com/chatin/safeline
   author:
     name: yawei.li
@@ -11,11 +13,11 @@ metadata:
   resource:
     limit:
       cpu: 2
-      memory: 4096M
+      memory: 4G
       disk: 10G
     recommand:
       cpu: 4
-      memory: 8192M
+      memory: 8G
       disk: 20G
 
 templates:
@@ -25,6 +27,6 @@ ports:
   management:
     ip: 0.0.0.0
     port: 9443
-    desc: 管理后台
+    desc: 控制台
 
 variables:
