@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  wordpress:
+    image: wordpress:6.2.0
+    depends_on:
+      - 'db'
+    restart: always
+    ports:
+      - '{{ports.wordpress.ip}}:{{ports.wordpress.port}}:80'
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: '{{variables.db_password.value}}'
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./www:/var/www/html'
+    links:
+      - 'db'
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: '{{variables.db_password.value}}'
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./db_data:/var/lib/mysql'
