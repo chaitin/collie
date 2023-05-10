@@ -1,0 +1,39 @@
+metadata:
+  name: MySQL
+  desc: MySQL 数据库，附带 phpmyadmin 管理工具
+  tags:
+    - 数据库
+    - MySQL
+  version: 8.0
+  homepage: https://www.mysql.com/
+  author:
+    name: chaitin
+    mail: chaitin@chaitin.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 512M
+      disk: 2G
+    recommand:
+      cpu: 2
+      memory: 2G
+      disk: 10G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  mysql:
+    ip: 127.0.0.1
+    port: 3306
+    desc: MySQL 数据库端口
+  phpmyadmin:
+    ip: 127.0.0.1
+    port: 10080
+    desc: phpmyadmin 控制台端口
+
+variables:
+  password: 
+    name: root 账户的初始化密码
+    desc: root 账户的初始化密码, 请注意密码的复杂度
+    value: password
