@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  redis:
+  nginx:
     image: nginx:1.24
     restart: always
     volumes: 
