@@ -1,6 +1,6 @@
 metadata:
   app_id: chdm1kfn0p80ndal4hqg@COLI
-  name: redis
+  name: Redis
   desc: Redis KV 数据库
   tags:
     - KV 数据库
