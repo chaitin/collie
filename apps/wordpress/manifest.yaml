@@ -1,0 +1,37 @@
+metadata:
+  app_id: chdpu17n0p81enlctshg@COLI
+  name: WordPress
+  desc: 著名的开源博客软件和 CMS 系统.
+  tags:
+    - 博客
+    - CMS
+    - 建站
+  version: 6.2.0
+  homepage: https://wordpress.com/
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  wordpress:
+    ip: 0.0.0.0
+    port: 4090
+    desc: Wordpress 监听端口
+
+variables:
+  db_password: 
+    name: 数据库密码
+    desc: MySQL 数据库密码, 注意复杂度
+    value: your-secret
