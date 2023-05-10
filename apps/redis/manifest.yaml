@@ -1,11 +1,12 @@
 metadata:
   app_id: chdm1kfn0p80ndal4hqg@COLI
   name: redis
-  desc: Fast kv database.
+  desc: Redis KV 数据库
   tags:
-    - kv
+    - KV 数据库
+    - 中间件
     - cache
-  version: 0.1.0
+  version: 6.2
   homepage: https://github.com/redis/redis
   author:
     name: Honsun
@@ -22,28 +23,15 @@ metadata:
 
 templates:
   - docker-compose.yaml
-  - config/redis.conf
 
 ports:
   redis:
     ip: 127.0.0.1
     port: 6379
-    desc: redis
-  sentinel:
-    ip: 0.0.0.0
-    port: 26379
-    desc: sentinel
+    desc: redis 监听地址
 
 variables:
   password: 
     name: redis 的初始化密码
     desc: redis 的初始化密码, 请注意密码的复杂度
     value: your-secret
-  timeout: 
-    name: client 空闲多少秒后关闭连接
-    desc: 0 为禁用，请填写合理的值
-    value: 0
-  tcp-keepalive: 
-    name: redis TCP 连接保活时间, 单位秒
-    desc: 默认 300 请填写合理的值
-    value: 300
