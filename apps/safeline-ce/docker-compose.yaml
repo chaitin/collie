@@ -36,7 +36,7 @@ services:
     - ./data/logs:/logs
     - /etc/localtime:/etc/localtime:ro
     ports:
-    - {{ports.management.ip}}:{{ports.management.port}}:1443
+    - '{{ports.management.ip}}:{{ports.management.port}}:1443'
     environment:
     - MANAGEMENT_RESOURCES_DIR=/resources/management
     - NGINX_RESOURCES_DIR=/resources/nginx

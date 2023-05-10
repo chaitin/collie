@@ -10,10 +10,10 @@ services:
     restart: always
     ports:
       - '{{ports.mysql.ip}}:{{ports.mysql.port}}:3306'
-    environments:
-      MYSQL_ROOT_PASSWORD: {{variables.password.value}}
+    environment:
+      - 'MYSQL_ROOT_PASSWORD={{variables.password.value}}'
     command: --default-authentication-plugin=mysql_native_password
-    volumes: 
+    volumes:
       - ./datadir:/var/lib/mysql:/data
 
   phpmyadmin:
@@ -21,5 +21,7 @@ services:
     restart: always
     ports:
       - '{{ports.phpmyadmin.ip}}:{{ports.phpmyadmin.port}}:80'
-    environments:
-      PMA_HOST: mysql
+    environment:
+      - 'PMA_HOST=mysql'
+    links:
+      - "mysql"
