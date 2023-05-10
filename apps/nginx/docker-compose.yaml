@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  redis:
+    image: nginx:1.24
+    restart: always
+    volumes: 
+      - ./conf:/etc/nginx/
+      - ./logs:/var/log/nginx
+    network_mode: host

@@ -30,7 +30,7 @@ ports:
     desc: MySQL 数据库端口
   phpmyadmin:
     ip: 127.0.0.1
-    port: 10080
+    port: 3080
     desc: phpmyadmin 控制台端口
 
 variables:

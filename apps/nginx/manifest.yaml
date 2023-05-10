@@ -1,0 +1,29 @@
+metadata:
+  app_id: chdm1kfn0p80ndal4hqg@COLI
+  name: Nginx
+  desc: 高性能的 HTTP 服务，反向代理服务
+  tags:
+    - HTTP
+    - Web
+    - 中间件
+  version: 1.24
+  homepage: https://nginx.org/
+  author:
+    name: chaitin
+    mail: chaitin@chaitin.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 256M
+      disk: 1G
+    recommand:
+      cpu: 1
+      memory: 1G
+      disk: 10G
+
+templates:
+  - docker-compose.yaml
+
+ports: {}
+
+variables: {}
