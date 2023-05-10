@@ -1,4 +1,5 @@
 metadata:
+  app_id: chdm1kfn0p80ndal4hq0@COLI
   name: MySQL
   desc: MySQL 数据库，附带 phpmyadmin 管理工具
   tags:
