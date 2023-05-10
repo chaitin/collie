@@ -1,7 +1,7 @@
 metadata:
   app_id: chdm2evn0p80h8e6oq8g@COLI
   name: 长亭雷池 WAF 社区版
-  desc: 核心检测能力由智能语义分析算法驱动，不让黑客越雷池半步。
+  desc: Web 防护系统，保护你的网站不受黑客攻击。
   tags:
     - 安全
     - WAF
