@@ -1,0 +1,31 @@
+metadata:
+  name: Homepage
+  desc: 一个高度可定制的主页，应用程序仪表板。
+  tags:
+    - 主页
+    - 仪表盘
+  version: 0.1.0
+  homepage: https://github.com/benphelps/homepage
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  port:
+    ip: 0.0.0.0
+    port: 3000
+    desc: 监听端口
+
+variables: {}

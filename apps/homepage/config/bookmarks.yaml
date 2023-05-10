@@ -1,0 +1,18 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/en/configs/bookmarks
+
+- Developer:
+    - Github:
+        - abbr: GH
+          href: https://github.com/
+
+- Social:
+    - 微博:
+        - abbr: WB
+          href: https://weibo.com/
+
+- Entertainment:
+    - BiliBili:
+        - abbr: BL
+          href: https://bilibili.com/
