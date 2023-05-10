@@ -18,8 +18,8 @@ services:
     volumes:
     - ./data/resources/postgres/data:/var/lib/postgresql/data
     environment:
-    - POSTGRES_USER=safeline-ce
-    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?postgres password required}
+    - 'POSTGRES_USER=safeline-ce'
+    - 'POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?postgres password required}'
     networks:
       safeline-ce:
         ipv4_address: 169.254.0.2
@@ -38,10 +38,10 @@ services:
     ports:
     - '{{ports.management.ip}}:{{ports.management.port}}:1443'
     environment:
-    - MANAGEMENT_RESOURCES_DIR=/resources/management
-    - NGINX_RESOURCES_DIR=/resources/nginx
-    - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@127.0.0.1/safeline-ce
-    - MANAGEMENT_LOGS_DIR=/logs/management
+    - 'MANAGEMENT_RESOURCES_DIR=/resources/management'
+    - 'NGINX_RESOURCES_DIR=/resources/nginx'
+    - 'DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@127.0.0.1/safeline-ce'
+    - 'MANAGEMENT_LOGS_DIR=/logs/management'
     networks:
       safeline-ce:
         ipv4_address: 169.254.0.4
@@ -55,7 +55,7 @@ services:
     - ./data/resources/detector:/resources/detector
     - ./data/logs/detector:/logs/detector
     environment:
-    - LOG_DIR=/logs/detector
+    - 'LOG_DIR=/logs/detector'
     networks:
       safeline-ce:
         ipv4_address: 169.254.0.5
@@ -69,9 +69,9 @@ services:
     - ./data/resources/mario:/resources/mario
     - ./data/logs/mario:/logs/mario
     environment:
-    - LOG_DIR=/logs/mario
-    - GOGC=100
-    - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@169.254.0.2/safeline-ce
+    - 'LOG_DIR=/logs/mario'
+    - 'GOGC=100'
+    - 'DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@169.254.0.2/safeline-ce'
     networks:
       safeline-ce:
         ipv4_address: 169.254.0.6
