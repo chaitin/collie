@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  qbittorrent:
+    image: linuxserver/qbittorrent:4.5.2
+    container_name: qbittorrent
+    environment:
+      - PUID={{variables.uid.value}}
+      - PGID={{variables.gid.value}}
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8080
+    volumes:
+      - './config:/config'
+      - '{{variables.downloads.value}}:/downloads'
+    ports:
+      - '{{ports.webui.ip}}:{{ports.webui.port}}:8080'
+      - '{{ports.bt.ip}}:{{ports.bt.port}}:6881'
+      - '{{ports.bt.ip}}:{{ports.bt.port}}:6881/udp'
+    restart: unless-stopped

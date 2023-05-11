@@ -1,0 +1,49 @@
+metadata:
+  app_id: chee08fn0p8b3unlkdug@COLI
+  name: qBittorrent
+  desc: 一个跨平台的开源、自由的BitTorrent客户端
+  tags:
+    - bittorrent
+    - 下载
+    - 种子
+  version: 4.5.2
+  homepage: https://github.com/qbittorrent/qBittorrent
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  webui:
+    ip: 0.0.0.0
+    port: 8080
+    desc: qBittorrent WebUI 监听地址，管理默认用户名/密码：admin/adminadmin
+  bt:
+    ip: 0.0.0.0
+    port: 6881
+    desc: qBittorrent BT 协议通信地址
+
+variables:
+  uid:
+    name: qBittorrent 下载的文件的 UID
+    desc: qBittorrent 下载的文件的 UID，通常为使用此文件用户的 UID
+    value: 1000
+  gid:
+    name: qBittorrent 下载的文件的 GID
+    desc: qBittorrent 下载的文件的 GID，通常为使用此文件用户的 GID
+    value: 1000
+  downloads:
+    name: qBittorrent 下载的目标目录
+    desc: qBittorrent 下载的目标目录
+    value: /downloads
