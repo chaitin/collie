@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}'
+      - MYSQL_DATABASE=hedgedoc
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./dbdata:/var/lib/mysql:/data
+
+  hedgedoc:
+    image: lscr.io/linuxserver/hedgedoc:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - 'DB_PASS=${MYSQL_PASSWORD}'
+      - DB_NAME=hedgedoc
+      - CMD_CSP_ENABLE=false
+    volumes:
+      - ./appdata:/config
+    ports:
+      - '{{ports.addr.ip}}:{{ports.addr.port}}:3000'
+    restart: always
+    links:
+      - "db"

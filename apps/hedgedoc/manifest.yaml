@@ -1,0 +1,32 @@
+metadata:
+  app_id: che98rfn0p82d77cf8ng@COLI
+  name: HedgeDoc
+  desc: 在线 markdown 文档系统，基于 hackmd 开发
+  tags:
+    - markdown
+    - 文档
+  version: 1.9.7
+  homepage: https://hedgedoc.org/
+  author:
+    name: chaitin
+    mail: chaitin@chaitin.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 512M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  addr:
+    ip: 0.0.0.0
+    port: 3000
+    desc: Web 管理地址
+
+variables: {}
