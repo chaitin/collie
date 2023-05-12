@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  veinmind-agent:
+    image: veinmind/veinmind-agent:v1.7.5
+    command:
+      - daemon -t ${RIVERS_TOKEN} -c https://veinmind-cood.rivers.chaitin.cn/server/ca -s https://veinmind-cood.rivers.chaitin.cn/server/list
+    volumes:
+      - /:/host
+      - /etc/hostname:/app/host/hostname
+      - /usr/local/.veinmind/agent/local/resource:/app/resource
+    privileged: true
+    network_mode: host
+    pid: host
