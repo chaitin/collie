@@ -1,0 +1,40 @@
+metadata:
+  app_id: chh0agvn0p82ol0bbbi0@COLI
+  name: Plex
+  desc: 广泛使用的，节目优美易用的媒体管理系统
+  tags:
+    - 多媒体
+    - homelab
+    - NAS
+  version: 0.1.0
+  homepage: https://plex.tv/
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports: {}
+variables:
+  uid:
+    name: Plex 以何种身份读取媒体文件
+    desc: 通常设置为目标文件的所有者，如果目标文件任何人都可读保持默认值即可
+    value: 1000
+  gid:
+    name: Plex 以何种身份组读取媒体文件
+    desc: 通常设置为目标文件的所有者虽在的组，如果目标文件任何人都可读保持默认值即可
+    value: 1000
+  data:
+    name: Plex 媒体文件库
+    desc: Plex 媒体文件库，推荐其下子目录可以有 tvs, movies 等
+    value: /downloads

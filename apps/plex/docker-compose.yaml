@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  plex:
+    image: linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID={{variables.uid.value}}
+      - PGID={{variables.gid.value}}
+      - TZ=Etc/UTC
+      - VERSION=docker
+    volumes:
+      - ./config:/config
+      - '{{variables.data.value}}:/data'
+    restart: unless-stopped
+
