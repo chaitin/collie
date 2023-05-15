@@ -1,12 +1,12 @@
 metadata:
   app_id: chh0agvn0p82ol0bbbi0@COLI
   name: Plex
-  desc: 广泛使用的，节目优美易用的媒体管理系统
+  desc: 广泛使用的，界面优美，电影墙易用的媒体管理系统
   tags:
     - 多媒体
     - homelab
     - NAS
-  version: 0.1.0
+  version: 0.1.1
   homepage: https://plex.tv/
   author:
     name: Honsun
