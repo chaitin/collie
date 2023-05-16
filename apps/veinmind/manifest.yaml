@@ -1,0 +1,44 @@
+metadata:
+  app_id: chea657n0p8bp0anmieg@COL
+  name: 长亭牧云容器安全 - Veinmind
+  desc: 镜像/容器安全防护系统，保护你的镜像与容器安全。
+  tags:
+    - 云安全
+    - 云原生
+    - 容器安全
+    - 镜像安全
+    - Docker
+  version: 1.7.5
+  homepage: https://veinmind.chaitin.com
+  author:
+    name: dvk
+    mail: dvkunion@gmail.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 2G
+      disk: 5G
+    recommand:
+      cpu: 2
+      memory: 4G
+      disk: 20G
+templates:
+  - docker-compose.yaml
+ports: {}
+variables:
+  need-knows:
+    name: 注意事项(-此项不需要填写，仅作为注意事项)
+    desc: 需要配合百川 - 牧云云原生安全平台使用 - 部署后请查看 - https://rivers.chaitin.cn/app/veinmind/
+    value: need-knows
+  before-install:
+    name: 安装前准备(-此项不需要填写，仅作为安装前准备)
+    desc: 需要配合百川 - 牧云云原生安全平台使用 - 需要在百川平台设置API-Token，并勾选牧云云原生安全平台相关权限。
+    value: before-install
+  after-install:
+    name: 安装后准备
+    desc: 需要配合百川 - 牧云云原生安全平台使用 - 部署后请查看 - https://rivers.chaitin.cn/app/veinmind/
+    value: after-install
+  token:
+    name: 百川 Token
+    desc: 百川 包含牧云-容器安全API权限的 Token
+    value: rivers-token
