@@ -6,11 +6,11 @@ metadata:
     - 安全
     - WAF
     - Web
-  version: 1.3.0
+  version: 1.5.1
   homepage: https://github.com/chaitin/safeline
   author:
-    name: yawei.li
-    mail: yawei.li@chaitin.com
+    name: chaitin
+    mail: chaitin@chaitin.com
   resource:
     limit:
       cpu: 2
