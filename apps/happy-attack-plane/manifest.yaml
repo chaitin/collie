@@ -1,7 +1,7 @@
 metadata:
   app_id: chrj5uhjr9266i6telrg@COLI
-  name: 打字小游戏
-  desc: 打字小游戏
+  name: 打飞机小游戏
+  desc: 打飞机小游戏
   tags:
     - 游戏
   version: 1.0.0
@@ -28,4 +28,4 @@ ports:
     port: 5261
     desc: 控制台
 
-variables:
+variables: {}
