@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  happy-attack-plane:
+    image: co0ontty/happy-attack-plane:latest
+    restart: always
+    ports:
+      - '{{ports.happy.ip}}:{{ports.happy.port}}:80'
