@@ -1,0 +1,5 @@
+version: '3.8'
+services:
+  redis:
+    image: co0ontty/happy-attack-plane:latest
+    

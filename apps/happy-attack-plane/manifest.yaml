@@ -1,0 +1,31 @@
+metadata:
+  app_id: chrj5uhjr9266i6telrg@COLI
+  name: 打字小游戏
+  desc: 打字小游戏
+  tags:
+    - 游戏
+  version: 1.0.0
+  homepage: https://github.com/wwwcomy/typingclub.git
+  author:
+    name: co0ontty
+    mail: co0ontty@gmail.com
+  resource:
+    limit:
+      cpu: 2
+      memory: 4G
+      disk: 10G
+    recommand:
+      cpu: 4
+      memory: 8G
+      disk: 20G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  management:
+    ip: 0.0.0.0
+    port: 5261
+    desc: 控制台
+
+variables:
