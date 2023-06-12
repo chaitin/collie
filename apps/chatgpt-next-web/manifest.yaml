@@ -1,0 +1,40 @@
+metadata:
+  app_id: ci3hc3850qttfmcj1io0@COLI
+  name: ChatGPT-Next-Web
+  desc: 一键拥有你自己的 ChatGPT 网页服务。
+  tags:
+    - ChatGPT
+    - WebUI
+  version: v2.7
+  homepage: https://github.com/Yidadaa/ChatGPT-Next-Web
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  web:
+    ip: 0.0.0.0
+    port: 3000
+    desc: ChatGPT Web 访问端口
+
+variables:
+  password:
+    name: 访问密码
+    desc: 网站访问密码，注意复杂度
+    value: your-chatgpt-secret
+  api_key:
+    name: api_key
+    desc: ChatGPT api_key，访问 OpenAI 官网获取
+    value: sk-********************xyz
