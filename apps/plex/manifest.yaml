@@ -7,6 +7,7 @@ metadata:
     - homelab
     - NAS
   version: 0.1.1
+  display_version: 1.32.3.7192
   homepage: https://plex.tv/
   author:
     name: Honsun

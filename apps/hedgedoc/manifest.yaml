@@ -6,6 +6,7 @@ metadata:
     - markdown
     - 文档
   version: 1.9.7
+  display_version: 1.9.7
   homepage: https://hedgedoc.org/
   author:
     name: chaitin

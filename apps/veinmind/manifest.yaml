@@ -9,6 +9,7 @@ metadata:
     - 镜像安全
     - Docker
   version: 1.7.6
+  display_version: 1.7.6
   homepage: https://veinmind.chaitin.com
   author:
     name: dvk

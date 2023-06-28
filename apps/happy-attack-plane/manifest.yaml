@@ -5,6 +5,7 @@ metadata:
   tags:
     - 游戏
   version: 1.0.0
+  display_version: 1.0.0
   homepage: https://github.com/wwwcomy/typingclub.git
   author:
     name: co0ontty

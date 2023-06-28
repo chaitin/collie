@@ -7,6 +7,7 @@ metadata:
     - CMS
     - 建站
   version: 6.2.0
+  display_version: 6.2.0
   homepage: https://wordpress.com/
   author:
     name: Honsun

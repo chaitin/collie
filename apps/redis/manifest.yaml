@@ -6,7 +6,8 @@ metadata:
     - KV 数据库
     - 中间件
     - cache
-  version: 6.2
+  version: 0.6.2
+  display_version: 6.2
   homepage: https://github.com/redis/redis
   author:
     name: Honsun

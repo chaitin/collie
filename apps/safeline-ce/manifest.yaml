@@ -7,6 +7,7 @@ metadata:
     - WAF
     - Web
   version: 1.10.0
+  display_version: 1.10.0
   homepage: https://github.com/chaitin/safeline
   author:
     name: chaitin
