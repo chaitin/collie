@@ -5,8 +5,8 @@ metadata:
   tags:
     - ChatGPT
     - WebUI
-  version: 0.2.8
-  display_version: 2.8
+  version: 0.2.9
+  display_version: 2.9
   homepage: https://github.com/Yidadaa/ChatGPT-Next-Web
   author:
     name: Honsun
@@ -39,3 +39,7 @@ variables:
     name: api_key
     desc: ChatGPT api_key，访问 OpenAI 官网获取
     value: sk-********************xyz
+  proxy_url:
+    name: Proxy URL
+    desc: 代理地址(若本地代理需要账号密码格式为 http://127.0.0.1:7890 user password)，若无代理请留空
+    value: http://127.0.0.1:7890
