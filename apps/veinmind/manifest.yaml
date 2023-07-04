@@ -43,4 +43,4 @@ variables:
   token:
     name: 百川 Token
     desc: 百川 包含牧云-容器安全API权限的 Token
-    value: rivers-token
+    value: <rivers-token> (从这里获取：https://rivers.chaitin.cn/organization/api)
