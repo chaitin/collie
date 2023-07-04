@@ -8,3 +8,4 @@ services:
     environment:
       CODE: '{{variables.password.value}}'
       OPENAI_API_KEY: '{{variables.api_key.value}}'
+      PROXY_URL: '{{variables.proxy_url.value}}'
