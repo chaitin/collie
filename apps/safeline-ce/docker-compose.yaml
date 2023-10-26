@@ -45,7 +45,7 @@ services:
   management:
     container_name: safeline-mgt-api
     restart: always
-    image: chaitin/safeline-mgt-api:${IMAGE_TAG:?image tag required}
+    image: chaitin/safeline-mgt-api:3.8.2
     volumes:
     - ${SAFELINE_DIR?safeline dir required}/resources/management:/resources/management
     - ${SAFELINE_DIR}/resources/nginx:/resources/nginx
@@ -59,7 +59,15 @@ services:
     - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@safeline-postgres/safeline-ce
     - MARIO_URL=http://safeline-mario:3335
     - DETECTOR_URL=http://safeline-detector:8001
+    - REDIS_URL=redis://:${REDIS_PASSWORD}@safeline-redis:6379/0
     - MANAGEMENT_LOGS_DIR=/logs/management
+    dns:
+      - 119.29.29.29
+      - 223.5.5.5
+      - 180.76.76.76
+      - 1.2.4.8
+      - 114.114.114.114
+      - 8.8.8.8
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.4
@@ -68,7 +76,7 @@ services:
   detector:
     container_name: safeline-detector
     restart: always
-    image: chaitin/safeline-detector:${IMAGE_TAG}
+    image: chaitin/safeline-detector:3.8.2
     volumes:
     - ${SAFELINE_DIR}/resources/detector:/resources/detector
     - ${SAFELINE_DIR}/logs/detector:/logs/detector
@@ -83,7 +91,7 @@ services:
   mario:
     container_name: safeline-mario
     restart: always
-    image: chaitin/safeline-mario:${IMAGE_TAG}
+    image: chaitin/safeline-mario:3.8.2
     volumes:
     - ${SAFELINE_DIR}/resources/mario:/resources/mario
     - ${SAFELINE_DIR}/logs/mario:/logs/mario
@@ -101,7 +109,7 @@ services:
   tengine:
     container_name: safeline-tengine
     restart: always
-    image: chaitin/safeline-tengine:${IMAGE_TAG}
+    image: chaitin/safeline-tengine:3.8.2
     volumes:
     - ${SAFELINE_DIR}/resources/nginx:/etc/nginx
     - ${SAFELINE_DIR}/resources/management:/resources/management
@@ -111,6 +119,7 @@ services:
     - ${SAFELINE_DIR}/resources/cache:/usr/local/nginx/cache
     - /etc/resolv.conf:/etc/resolv.conf
     environment:
+    - REDIS_URL=redis://:${REDIS_PASSWORD}@${SUBNET_PREFIX}.3:6379/0
     - MGT_ADDR=${SUBNET_PREFIX}.4:9002
     ulimits:
       nofile: 131072
