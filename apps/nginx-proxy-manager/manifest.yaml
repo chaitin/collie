@@ -1,0 +1,33 @@
+metadata:
+  app_id: chdpt7vn0p80oel5s571@COLI
+  name: Nginx Proxy Manager
+  desc: Expose your services easily and securely
+  tags:
+    - Proxy
+    - Web
+    - SSL
+  version: 23.08.1
+  display_version: v23.08.1
+  homepage: https://nginxproxymanager.com
+  author:
+    name: chaitin
+    mail: chaitin@chaitin.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 256M
+      disk: 1G
+    recommand:
+      cpu: 1
+      memory: 1G
+      disk: 1G
+
+templates:
+  - docker-compose.yaml
+
+ports: 
+  admin:
+    port: 81
+    desc: 管理端端口
+
+variables: {}
