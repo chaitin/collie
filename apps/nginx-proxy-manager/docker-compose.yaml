@@ -7,7 +7,7 @@ services:
       # These ports are in format <host-port>:<container-port>
       - '80:80' # Public HTTP Port
       - '443:443' # Public HTTPS Port
-      - '{{ports.admin.port}}:81' # Admin Web Port
+      - '{{ports.admin.ip}}:{{ports.admin.port}}:81' # Admin Web Port
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
 
