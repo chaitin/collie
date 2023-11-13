@@ -27,7 +27,8 @@ templates:
 
 ports: 
   admin:
+    ip: 0.0.0.0
     port: 81
-    desc: 管理端端口
+    desc: 管理端访问地址
 
 variables: {}
