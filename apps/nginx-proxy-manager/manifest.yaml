@@ -6,7 +6,7 @@ metadata:
     - Proxy
     - Web
     - SSL
-  version: 23.08.1
+  version: 23.8.1
   display_version: v23.08.1
   homepage: https://nginxproxymanager.com
   author:
