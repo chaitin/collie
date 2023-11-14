@@ -6,8 +6,8 @@ metadata:
     - Proxy
     - Web
     - SSL
-  version: 23.8.1
-  display_version: v23.08.1
+  version: 2.10.4
+  display_version: 2.10.4
   homepage: https://nginxproxymanager.com
   author:
     name: chaitin
@@ -31,4 +31,8 @@ ports:
     port: 81
     desc: 管理端访问地址
 
-variables: {}
+variables:
+  password:
+    name: 默认用户名和密码（登录后修改）
+    desc: 管理端初始用户名和密码
+    value: admin@example.com / changeme
