@@ -1,0 +1,38 @@
+metadata:
+  app_id: chdm2evn0p80h8e6oq8h@COLI
+  name: Halo
+  desc: 强大易用的开源建站工具
+  tags:
+    - 建站
+  version: 2.10.0
+  display_version: 2.10.0
+  homepage: https://docs.halo.run/
+  author:
+    name: chaitin
+    mail: chaitin@chaitin.com
+  resource:
+    limit:
+      cpu: 2
+      memory: 4G
+      disk: 10G
+    recommand:
+      cpu: 4
+      memory: 8G
+      disk: 20G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  web:
+    ip: 0.0.0.0
+    port: 8090
+    desc: 访问端口
+
+variables:
+  url:
+    name: 外部访问URL
+    desc: 外部访问URL(跟控制台端口保持一致)
+    value: http://localhost:8090/
+
+
