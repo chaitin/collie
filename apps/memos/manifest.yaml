@@ -1,0 +1,34 @@
+metadata:
+  app_id: chdm1kfn0p80nda14hqg@COLI
+  name: Memos
+  desc: Memos is a privacy-first, lightweight note-taking service. Easily capture and share your great thoughts.
+  tags:
+    - 日记
+    - 轻量
+    - 微博
+  version: 0.17.1
+  display_version: 0.17.1
+  homepage: https://www.usememos.com/
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  admin:
+    ip: 0.0.0.0
+    port: 5230
+    desc: memos 访问地址
+
+variables:
