@@ -4,6 +4,6 @@ services:
     image: ghcr.io/usememos/memos:0.17.1
     container_name: memos
     volumes:
-      - ~/.memos/:/var/opt/memos
+      - ./.memos/:/var/opt/memos
     ports:
       - '{{ports.admin.ip}}:{{ports.admin.port}}:5230'
