@@ -37,7 +37,7 @@ services:
       - ${SAFELINE_DIR}/logs:/logs
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - ${MGT_PORT:-9443}:1443
+      - '{{ports.management.ip}}:{{ports.management.port}}:1443'
     environment:
       - MANAGEMENT_RESOURCES_DIR=/resources/management
       - NGINX_RESOURCES_DIR=/resources/nginx
