@@ -5,8 +5,8 @@ networks:
     ipam:
       driver: default
       config:
-      - gateway: ${SUBNET_PREFIX:?SUBNET_PREFIX required}.1
-        subnet: ${SUBNET_PREFIX}.0/24
+        - gateway: ${SUBNET_PREFIX:?SUBNET_PREFIX required}.1
+          subnet: ${SUBNET_PREFIX}.0/24
     driver_opts:
       com.docker.network.bridge.name: safeline-ce
 
@@ -16,51 +16,35 @@ services:
     restart: always
     image: postgres:15.2
     volumes:
-    - ${SAFELINE_DIR}/resources/postgres/data:/var/lib/postgresql/data
-    - /etc/localtime:/etc/localtime:ro
+      - ${SAFELINE_DIR}/resources/postgres/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
     environment:
-    - POSTGRES_USER=safeline-ce
-    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?postgres password required}
+      - POSTGRES_USER=safeline-ce
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?postgres password required}
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.2
     cap_drop:
-    - net_raw
-    command: [postgres, -c, max_connections=200]
-  redis:
-    container_name: safeline-redis
-    restart: always
-    image: redis:7.0.10
-    volumes:
-      - ${SAFELINE_DIR}/resources/redis/data:/data
-      - /etc/localtime:/etc/localtime:ro
-    command: redis-server --appendonly yes --requirepass  ${REDIS_PASSWORD}
-    networks:
-      safeline-ce:
-        ipv4_address: ${SUBNET_PREFIX}.3
-    cap_drop:
       - net_raw
-    sysctls:
-      net.core.somaxconn: "511"
+    command: [postgres, -c, max_connections=200]
   management:
     container_name: safeline-mgt-api
     restart: always
-    image: chaitin/safeline-mgt-api:3.13.2
+    image: chaitin/safeline-mgt-api:3.15.3
     volumes:
-    - ${SAFELINE_DIR?safeline dir required}/resources/management:/resources/management
-    - ${SAFELINE_DIR}/resources/nginx:/resources/nginx
-    - ${SAFELINE_DIR}/logs:/logs
-    - /etc/localtime:/etc/localtime:ro
+      - ${SAFELINE_DIR?safeline dir required}/resources/management:/resources/management
+      - ${SAFELINE_DIR}/resources/nginx:/resources/nginx
+      - ${SAFELINE_DIR}/logs:/logs
+      - /etc/localtime:/etc/localtime:ro
     ports:
-    - '{{ports.management.ip}}:{{ports.management.port}}:1443'
+      - '{{ports.management.ip}}:{{ports.management.port}}:1443'
     environment:
-    - MANAGEMENT_RESOURCES_DIR=/resources/management
-    - NGINX_RESOURCES_DIR=/resources/nginx
-    - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@safeline-postgres/safeline-ce
-    - MARIO_URL=http://safeline-mario:3335
-    - FVM_MANAGER_URL=safeline-fvm-manager:9004
-    - REDIS_URL=redis://:${REDIS_PASSWORD}@safeline-redis:6379/0
-    - MANAGEMENT_LOGS_DIR=/logs/management
+      - MANAGEMENT_RESOURCES_DIR=/resources/management
+      - NGINX_RESOURCES_DIR=/resources/nginx
+      - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@safeline-postgres/safeline-ce
+      - MARIO_URL=http://safeline-mario:3335
+      - FVM_MANAGER_URL=safeline-fvm-manager:9004
+      - MANAGEMENT_LOGS_DIR=/logs/management
     dns:
       - 119.29.29.29
       - 223.5.5.5
@@ -72,62 +56,60 @@ services:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.4
     cap_drop:
-    - net_raw
+      - net_raw
   detector:
     container_name: safeline-detector
     restart: always
-    image: chaitin/safeline-detector:3.13.2
+    image: chaitin/safeline-detector:3.15.3
     volumes:
-    - ${SAFELINE_DIR}/resources/detector:/resources/detector
-    - ${SAFELINE_DIR}/logs/detector:/logs/detector
-    - /etc/localtime:/etc/localtime:ro
+      - ${SAFELINE_DIR}/resources/detector:/resources/detector
+      - ${SAFELINE_DIR}/logs/detector:/logs/detector
+      - /etc/localtime:/etc/localtime:ro
     environment:
-    - LOG_DIR=/logs/detector
+      - LOG_DIR=/logs/detector
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.5
     cap_drop:
-    - net_raw
+      - net_raw
   mario:
     container_name: safeline-mario
     restart: always
-    image: chaitin/safeline-mario:3.13.2
+    image: chaitin/safeline-mario:3.15.3
     volumes:
-    - ${SAFELINE_DIR}/resources/mario:/resources/mario
-    - ${SAFELINE_DIR}/logs/mario:/logs/mario
-    - /etc/localtime:/etc/localtime:ro
+      - ${SAFELINE_DIR}/resources/mario:/resources/mario
+      - ${SAFELINE_DIR}/logs/mario:/logs/mario
+      - /etc/localtime:/etc/localtime:ro
     environment:
-    - LOG_DIR=/logs/mario
-    - GOGC=100
-    - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@safeline-postgres/safeline-ce
-    - REDIS_URL=redis://:${REDIS_PASSWORD}@safeline-redis:6379/0
+      - LOG_DIR=/logs/mario
+      - GOGC=100
+      - DATABASE_URL=postgres://safeline-ce:${POSTGRES_PASSWORD}@safeline-postgres/safeline-ce
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.6
     cap_drop:
-    - net_raw
+      - net_raw
   tengine:
     container_name: safeline-tengine
     restart: always
-    image: chaitin/safeline-tengine:3.13.2
+    image: chaitin/safeline-tengine:3.15.3
     volumes:
-    - ${SAFELINE_DIR}/resources/nginx:/etc/nginx
-    - ${SAFELINE_DIR}/resources/management:/resources/management
-    - ${SAFELINE_DIR}/resources/detector:/resources/detector
-    - ${SAFELINE_DIR}/logs/nginx:/var/log/nginx
-    - /etc/localtime:/etc/localtime:ro
-    - ${SAFELINE_DIR}/resources/cache:/usr/local/nginx/cache
-    - /etc/resolv.conf:/etc/resolv.conf
+      - ${SAFELINE_DIR}/resources/nginx:/etc/nginx
+      - ${SAFELINE_DIR}/resources/management:/resources/management
+      - ${SAFELINE_DIR}/resources/detector:/resources/detector
+      - ${SAFELINE_DIR}/logs/nginx:/var/log/nginx
+      - /etc/localtime:/etc/localtime:ro
+      - ${SAFELINE_DIR}/resources/cache:/usr/local/nginx/cache
+      - /etc/resolv.conf:/etc/resolv.conf
     environment:
-    - REDIS_URL=redis://:${REDIS_PASSWORD}@${SUBNET_PREFIX}.3:6379/0
-    - MGT_ADDR=${SUBNET_PREFIX}.4:9002
+      - MGT_API=https://${SUBNET_PREFIX}.4:1443/api/publish/server
     ulimits:
       nofile: 131072
     network_mode: host
   fvm-manager:
     container_name: safeline-fvm-manager
     restart: always
-    image: chaitin/safeline-fvm-manager:3.13.2
+    image: chaitin/safeline-fvm-manager:3.15.3
     environment:
       - FVM_LOGS_DIR=/logs/management
       - DETECTOR_URL=http://safeline-detector:8001
