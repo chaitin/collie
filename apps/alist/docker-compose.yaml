@@ -1,0 +1,15 @@
+version: "3.0"
+services:
+  alist:
+    image: xhofe/alist:v3.29.1
+    container_name: alist
+    restart: always
+    volumes:
+      - ./data/:/opt/alist/data
+      - '{{variables.host_v.value}}:{{variables.container_v.value}}'
+    ports:
+      - '{{ports.admin.ip}}:{{ports.admin.port}}:5244'
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
