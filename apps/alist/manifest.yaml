@@ -1,0 +1,43 @@
+metadata:
+  app_id: chdm1kfnop80nda14hqg@COLI
+  name: alist
+  desc: 一个支持多种存储的文件列表程序，使用 Gin 和 Solidjs。
+  tags:
+    - WebDAV
+    - 阿里云盘
+    - 文件预览
+  version: 3.29.1
+  display_version: 3.29.1
+  homepage: https://github.com/alist-org/alist
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  admin:
+    ip: 0.0.0.0
+    port: 5244
+    desc: alist 访问地址
+
+variables:
+  host_v:
+    name: 宿主机目录
+    desc: 一般是存放资源的目录，比如/data/media
+    value: /data/media
+  container_v:
+    name: 容器目录
+    desc: 容器内对应的资源目录，比如/mnt/data/media
+    value: /mnt/data/media
+
