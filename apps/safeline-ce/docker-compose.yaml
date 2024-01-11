@@ -28,7 +28,7 @@ services:
   mgt:
     container_name: safeline-mgt
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mgt:${IMAGE_TAG:?image tag required}
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mgt:4.1.1
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${SAFELINE_DIR}/resources/mgt:/app/data
