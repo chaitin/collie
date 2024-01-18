@@ -8,8 +8,8 @@ metadata:
     - 容器安全
     - 镜像安全
     - Docker
-  version: 2.3.7
-  display_version: 2.3.7
+  version: 2.3.8
+  display_version: 2.3.8
   homepage: https://veinmind.chaitin.com
   author:
     name: dvk
