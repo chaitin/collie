@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   veinmind-agent:
-    image: veinmind/veinmind-agent:v2.3.7
+    image: veinmind/veinmind-agent:v2.3.8
     command:
       - daemon -t ${RIVERS_TOKEN} -c https://veinmind-cood.rivers.chaitin.cn/server/ca -s https://veinmind-cood.rivers.chaitin.cn/server/list
     volumes:
