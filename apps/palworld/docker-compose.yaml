@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+   palworld:
+      image: thijsvanloef/palworld-server-docker:v0.19.0
+      restart: unless-stopped
+      ports:
+        - '{{ports.palworld.ip}}:{{ports.palworld.port}}:8211/udp'
+        - 27015:27015/udp
+      environment:
+         - PUID=1000
+         - PGID=1000
+         - PORT='{{ports.palworld.port}}' # Optional but recommended
+         - PLAYERS='{{variables.players.value}}' # Optional but recommended
+         - SERVER_PASSWORD='{{variables.server_password.value}}'
+         - MULTITHREADING=true
+         - RCON_ENABLED=true
+         - RCON_PORT=25575
+         - TZ=Asia/Shanghai
+         - ADMIN_PASSWORD='{{variables.admin_password.value}}'
+         - COMMUNITY=false  # Enable this if you want your server to show up in the community servers tab, USE WITH SERVER_PASSWORD!
+         - SERVER_NAME='{{variables.server_name.value}}'
+      volumes:
+         - ./palworld:/palworld/

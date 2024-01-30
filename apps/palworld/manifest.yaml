@@ -1,0 +1,50 @@
+metadata:
+  app_id: chdm1knnoo80ndal4hqg@COLI
+  name: Palworld
+  desc: 创建自己的幻兽帕鲁服务器
+  tags:
+    - 幻兽帕鲁
+    - Palworld
+    - 自建服务
+  version: 0.19.0
+  display_version: 0.19.0
+  homepage: https://store.steampowered.com/app/1623730/Palworld/
+  author:
+    name: Honsun
+    mail: honsun@linux.com
+  resource:
+    limit:
+      cpu: 4
+      memory: 16G
+      disk: 1G
+    recommand:
+      cpu: 8
+      memory: 32G 
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+
+ports:
+  palworld:
+    ip: 0.0.0.0
+    port: 8211
+    desc: 服务器连接地址
+
+variables:
+  server_name:
+    name: 服务器名称
+    desc: 服务器的名字
+    value: palworld
+  server_password: 
+    name: 连接密码
+    desc: 服务器的连接密码(修改！！！)
+    value: WorldOfPals
+  players: 
+    name: 玩家人数
+    desc: 服务器承载的玩家人数
+    value: 16
+  admin_password: 
+    name: 管理员密码
+    desc: 管理员管理密码(修改！！！)
+    value: AdminPasswordHere
