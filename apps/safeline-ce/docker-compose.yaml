@@ -119,7 +119,7 @@ services:
   bridge:
     container_name: safeline-bridge
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/safeline-bridge:4.3.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-bridge:4.3.0
     command:
       - /app/bridge
       - serve
