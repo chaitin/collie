@@ -84,7 +84,7 @@ services:
     image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-tengine:4.4.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /etc/resolv.conf:/etc/resolv.conf
+      - /etc/resolv.conf:/etc/resolv.conf:ro
       - ${SAFELINE_DIR}/resources/nginx:/etc/nginx
       - ${SAFELINE_DIR}/resources/detector:/resources/detector
       - ${SAFELINE_DIR}/logs/nginx:/var/log/nginx
