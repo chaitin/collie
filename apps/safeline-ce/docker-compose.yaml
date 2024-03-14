@@ -24,16 +24,18 @@ services:
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.2
-    command: [postgres, -c, max_connections=200]
+    command: [ postgres, -c, max_connections=200 ]
   mgt:
     container_name: safeline-mgt
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mgt:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mgt:5.0.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${SAFELINE_DIR}/resources/mgt:/app/data
     ports:
       - '{{ports.management.ip}}:{{ports.management.port}}:1443'
+    healthcheck:
+      test: curl -k -f https://localhost:1443/api/open/health
     environment:
       - MGT_PG=postgres://safeline-ce:${POSTGRES_PASSWORD}@safeline-pg/safeline-ce?sslmode=disable
       - MGT_LICENSE_SERVER=https://safeline-ce-4463.rivers.chaitin.cn/
@@ -53,7 +55,7 @@ services:
   detect:
     container_name: safeline-detector
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-detector:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-detector:5.0.0
     volumes:
       - ${SAFELINE_DIR}/resources/detector:/resources/detector
       - ${SAFELINE_DIR}/logs/detector:/logs/detector
@@ -66,7 +68,7 @@ services:
   mario:
     container_name: safeline-mario
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mario:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mario:5.0.0
     volumes:
       - ${SAFELINE_DIR}/resources/mario:/resources/mario
       - ${SAFELINE_DIR}/logs/mario:/logs/mario
@@ -81,7 +83,7 @@ services:
   tengine:
     container_name: safeline-tengine
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-tengine:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-tengine:5.0.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/resolv.conf:/etc/resolv.conf:ro
@@ -100,7 +102,7 @@ services:
   luigi:
     container_name: safeline-luigi
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-luigi:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-luigi:5.0.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${SAFELINE_DIR}/resources/luigi:/app/data
@@ -110,12 +112,12 @@ services:
     environment:
       - MGT_IP=${SUBNET_PREFIX}.4
     depends_on:
-        - detect
-        - mgt
+      - detect
+      - mgt
   fvm:
     container_name: safeline-fvm
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-fvm:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-fvm:5.0.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
     networks:
@@ -124,7 +126,7 @@ services:
   bridge:
     container_name: safeline-bridge
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-bridge:4.4.2
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-bridge:5.0.0
     command:
       - /app/bridge
       - serve
