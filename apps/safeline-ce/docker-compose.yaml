@@ -28,7 +28,7 @@ services:
   mgt:
     container_name: safeline-mgt
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mgt:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mgt:5.2.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${SAFELINE_DIR}/resources/mgt:/app/data
@@ -55,7 +55,7 @@ services:
   detect:
     container_name: safeline-detector
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-detector:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-detector:5.2.0
     volumes:
       - ${SAFELINE_DIR}/resources/detector:/resources/detector
       - ${SAFELINE_DIR}/logs/detector:/logs/detector
@@ -68,7 +68,7 @@ services:
   mario:
     container_name: safeline-mario
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mario:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-mario:5.2.0
     volumes:
       - ${SAFELINE_DIR}/resources/mario:/resources/mario
       - ${SAFELINE_DIR}/logs/mario:/logs/mario
@@ -83,7 +83,7 @@ services:
   tengine:
     container_name: safeline-tengine
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-tengine:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-tengine:5.2.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/resolv.conf:/etc/resolv.conf:ro
@@ -102,7 +102,7 @@ services:
   luigi:
     container_name: safeline-luigi
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-luigi:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-luigi:5.2.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${SAFELINE_DIR}/resources/luigi:/app/data
@@ -117,7 +117,7 @@ services:
   fvm:
     container_name: safeline-fvm
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-fvm:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-fvm:5.2.0
     volumes:
       - /etc/localtime:/etc/localtime:ro
     networks:
@@ -126,7 +126,7 @@ services:
   bridge:
     container_name: safeline-bridge
     restart: always
-    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-bridge:5.1.0
+    image: swr.cn-east-3.myhuaweicloud.com/chaitin-safeline/safeline-bridge:5.2.0
     command:
       - /app/bridge
       - serve
